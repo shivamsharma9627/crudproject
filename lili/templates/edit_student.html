@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>add students
+    </title>
+  </head>
+  <body>
+{% include 'nevbar.html' %} 
+      <h1 class="text-center my-2">edit new_students </h1>
+    {% for message in messages %}
+    <div class="alert alert-custom alert-success fade show mx-5 mb-0 mt-4" role="alert">
+        <div class="alert-icon">
+            <en class="flaticon2-check-mark"></en>
+        </div>
+        <div class="alert-text">{{ message }}</div>
+        <div class="alert-close">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><en class="ki ki-close"></en></span>
+        </button>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+<div class="card bg-info">
+    <div class="card-body bg-danger">
+        <form action="/do_edit_student/{{std.id}}" method="POST">
+            {% csrf_token %}
+            <div class="md-3">
+                <label for="roll">roll</label>
+                <input type="text" id="roll" name="roll" required value="{{std.roll}}" class="form-control" placeholder="enter your roll">
+                
+            </div>
+            <div class="md-3">
+                <label for="roll">name</label>
+                <input type="text" id="name" name="name"  value="{{std.name}}" class="form-control" placeholder="enter your name">
+            </div>
+
+            <div class="md-3">
+                <label for="email">email</label>
+                <input type="text" id="email" name="email" required value="{{std.email}}" class="form-control" placeholder="enter your email">
+            </div>
+
+            <div class="md-3">
+                <label for="password">password</label>
+                <input type="text" id="password" required value="{{std.password}}"  name="password" class="form-control" placeholder="enter your password">
+            </div>
+            <div class="md-3">
+                <label for="phone">phone</label>
+                <input type="text" id="phone" required value="{{std.phone}}" name="phone" class="form-control" placeholder="enter your phone">
+            </div>
+
+            <div class="form-group">
+            <label for="address"> address</label>
+            <textarea   type="text" id="address" name="address" class="form-control"  value="{{std.address}}" placeholder="enter your address"  rows="5"></textarea>
+            </div>
+            <div class="contaier text-center my-2">
+                <button class="btn btn-success" >
+                    edit student
+                </button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+ 
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
